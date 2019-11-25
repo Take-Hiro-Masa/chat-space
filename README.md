@@ -14,20 +14,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|adding_users|string|null: false|
-|user|string|null: false|
 ### Association
-- has_many :user, through: : :groups_users
+- has_many :users, through: : :groups_users
 - has_many :messages
 - has_many :groups_users
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
-|text|text|null: false|
+|image|text||
+|text|text||
 |user_id|integer|null: false, foreign_key: true|
-|tweet_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
