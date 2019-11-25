@@ -8,22 +8,23 @@
 ### Association
 - has_many :groups, through: :groups_users
 - has_many :messages
+- has_many :groups_users
 
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 |adding_users|string|null: false|
 |user|string|null: false|
 ### Association
 - has_many :user, through: : :groups_users
 - has_many :messages
-- 
+- has_many :groups_users
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|
+|image|text|null: false|
 |text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |tweet_id|integer|null: false, foreign_key: true|
