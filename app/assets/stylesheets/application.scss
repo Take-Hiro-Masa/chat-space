@@ -73,11 +73,11 @@
   justify-content: space-between;
   border-bottom: solid 1px #eee;
   overflow: scroll;
+  &__left-box {
+    margin-top: 35px;
+  }
 }
 
-.main-header__left-box {
-  margin-top: 35px;
-}
 
 .main-header__left-box__current-group {
   font-size: 20px;
@@ -90,18 +90,16 @@
   color: #999;
 }
 
-.main-header a {
-  color: #38aef0;
+.main-header__edit-btn {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  margin-top: 28px;
+  border: 1px solid #38aef0;
+  position: absolute;
+  right: 40px;
   text-decoration: none;
-  .main-header__edit-btn {
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-    margin-top: 28px;
-    border: 1px solid #38aef0;
-    position: absolute;
-    right: 40px;
-  }
+  color: #38aef0;
 }
 
 .messages {

@@ -3,8 +3,8 @@
     %div.main-header__left-box
       %h2.main-header__left-box__current-group qwe
       %ul.main-header__left-box__member-list Member:
-    %a{href: "#"} 
-      %div.main-header__edit-btn EDIT
+    = link_to "#", class: "main-header__edit-btn" do
+      EDIT
   %div.messages
     %div.message
       %div.message__upper-info
