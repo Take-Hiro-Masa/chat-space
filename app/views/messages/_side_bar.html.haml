@@ -1,14 +1,16 @@
 %div.chat-side
   %div.side-header
     %div.side-header__box
-      %p.side-header__box__user-name asd
+      %p.side-header__box__user-name 
+        asd
+        = current_user.name
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-group
           = link_to "#", class: "contents__btn" do
             = icon('fas', 'book')
         %li.side-header__box__menu__edit-user
-          = link_to "#", class: "contents__btn" do
-            = icon('fas', 'cog')
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon')
   %div.groups
     = link_to "#"
     %div.group
