@@ -138,7 +138,7 @@
   margin-left: 10px;
 }
 
-.message__text {
+.message__lower {
   font-size: 14px;
   color: #434A54;
   margin-bottom: 10px;
@@ -166,7 +166,7 @@
       font-size: 1.3rem;
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 150px;
       cursor: pointer;
       &__file {
         display: none;
