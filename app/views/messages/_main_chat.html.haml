@@ -1,10 +1,15 @@
 %div.chat-main
   %div.main-header
     %div.main-header__left-box
-      %h2.main-header__left-box__current-group qwe
-      %ul.main-header__left-box__member-list Member:
-    = link_to "#", class: "main-header__edit-btn" do
-      EDIT
+      %h2.main-header__left-box__current-group
+        = @group.name
+      %ul.main-header__left-box__member-list 
+        Member :
+        -@group.users.each do|user|
+          = "#{user.name}"
+      = link_to edit_group_path(@group.id) do
+        %p.main-header__edit-btn
+          EDIT
   %div.messages
     = render @messages
     %div.message
@@ -20,8 +25,6 @@
       -#     = icon('fas', 'image')
       -#     %input.input-box__image__file{type: "file"}
       -# %input.submit-btn{type: "submit", value: "Send", name: "commit"}
-
-
       .input-box
         = form_for [@group, @message] do |f|
           = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
@@ -29,12 +32,3 @@
             = icon('fas', 'image')
             = f.file_field :image, class: 'input-box__image__file'
           = f.submit 'Send', class: 'submit-btn'
-
--# form
--#       = form_for [@group, @message] do |f|
--#         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
--#         .form__mask
--#           = f.label :image, class: 'form__mask__image' do
--#             = icon('fas', 'image', class: 'icon')
--#             = f.file_field :image, class: 'hidden'
--#         = f.submit 'Send', class: 'form__submit'
