@@ -5,7 +5,7 @@ $(function(){
     if (message.image){
       image_html = `<img class="message__lower__image" src="${ message.image }">`;
     } else {
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                       ${message.user_name}
@@ -51,4 +51,25 @@ $(function(){
       alert('エラー')
     })
   })
+
+  var reloadMesages = function () {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML += buildHTML(message);
+          $('.messages').append(insertHTML);
+        })
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+      })
+    }
+  };
+  setInterval(reloadMessages, 7000);
 });
