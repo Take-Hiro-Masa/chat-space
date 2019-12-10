@@ -52,20 +52,21 @@
   background-color: #2f3e51;
   padding: 20px 20px 0;
   overflow: scroll;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .group {
   margin-bottom: 40px;
-  text-decoration: none;
   
   &__group-name {
     font-size: 15px;
     margin-bottom: 5px;
-    color: white;
   }
   &__latest-message {
     font-size: 11px;
-    color: white;
   }
 }
 
@@ -107,7 +108,7 @@
   position: absolute;
   right: 40px;
   top: 0;
-  text-decoration: none;
+  // text-decoration: none;
   color: #38aef0;
 }
 
