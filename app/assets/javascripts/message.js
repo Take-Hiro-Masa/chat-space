@@ -3,7 +3,7 @@ $(function(){
 
     var image_html = ``;
     if (message.image){
-      image_html = `<img class="message__lower__image" src="${ message.image }">`;
+      image_html = `<img class="message__lower__image" src="${message.image}">`;
     } else {
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
