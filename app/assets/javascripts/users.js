@@ -1,42 +1,3 @@
-// $(function() {
-//   function addendUser(user) {
-//     let html = `
-//       <div class="chat-group-user clearfix">
-//         <p class="chat-group-user__name">${user.name}</p>
-//         <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
-//       </div>`
-
-//     $("#user-search-result").append(html);
-//   }
-
-//   function addendUser(user) {
-//     let html =`
-//       <div class="chat-group-user clearfix">
-//         <p class="chat-group-user__name">ユーザーが見つかりません</p>
-//       </div>`
-//     $("#user-search-result").append(html);
-//   }
-//   $("#user-search-fieid").on("keyup",function(){
-//     let input = $("#user-search-field").Val();
-//     $.ajax({
-//       type: "GET",
-//       url: "/users",
-//       data: { keyword: input },
-//       dataType: "json"
-//     })
-//       .done(function(users) {
-//         $("#user-search-result").empty();
-//         if (users.length !== 0) {
-//           users.forEach(function(user) {
-//             addendUser(user);
-//           });
-//         }
-//       })
-//       .fail(function() {
-//         alert("エラー")
-//       });
-//   });
-// });
 
 $(function() {
   function addUser(user) {
@@ -71,6 +32,7 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
+    console.log("ok")
     $.ajax({
       type: "GET",
       url: "/users",
@@ -95,7 +57,6 @@ $(function() {
       });
   });
   $(document).on("click", ".chat-group-user__btn--add", function() {
-    console.log
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)

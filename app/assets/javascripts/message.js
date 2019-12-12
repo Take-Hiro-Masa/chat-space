@@ -1,10 +1,7 @@
 $(function(){
   function buildHTML(message){
-
-    var image_html = ``;
-    if (message.image){
-      image_html = `<img class="message__lower__image" src="${message.image}">`;
-    } else {
+    var content = message.content? `${message.content}` : "";
+    var img = message.image? `<img class="message__lower__image" src="${message.image}">` : "";
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -16,13 +13,34 @@ $(function(){
                   </div>
                   <p class="message__lower">
                     <p class="message__lower__text">
-                      ${message.content}
+                      ${content}
                     </p>
-                    ${image_html}
+                    ${img}
                   </p>
-                  
                 </div>`;
-    }
+
+                // var image_html = ``;
+                // if (message.image){
+                //   image_html = `<img class="message__lower__image" src="${message.image}">`;
+                // } else {
+                // var html = `<div class="message" data-message-id="${message.id}">
+                //               <div class="message__upper-info">
+                //                 <p class="message__upper-info__talker">
+                //                   ${message.user_name}
+                //                 </p>
+                //                 <p class="message__upper-info__date">
+                //                   ${message.created_at}
+                //                 </p>
+                //               </div>
+                //               <p class="message__lower">
+                //                 <p class="message__lower__text">
+                //                   ${message.content}
+                //                 </p>
+                //                 ${image_html}
+                //               </p>
+                //             </div>`;
+                
+    
     return html;
   }
   
@@ -52,7 +70,7 @@ $(function(){
     })
   })
 
-  var reloadMesages = function () {
+  function reloadMessages () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.message:last').data("message-id");
       $.ajax({
@@ -62,6 +80,7 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
+        console.log(messages)
         var insertHTML = '';
         messages.forEach(function(message){
           insertHTML += buildHTML(message);
