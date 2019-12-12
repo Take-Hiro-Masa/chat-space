@@ -19,27 +19,7 @@ $(function(){
                   </p>
                 </div>`;
 
-                // var image_html = ``;
-                // if (message.image){
-                //   image_html = `<img class="message__lower__image" src="${message.image}">`;
-                // } else {
-                // var html = `<div class="message" data-message-id="${message.id}">
-                //               <div class="message__upper-info">
-                //                 <p class="message__upper-info__talker">
-                //                   ${message.user_name}
-                //                 </p>
-                //                 <p class="message__upper-info__date">
-                //                   ${message.created_at}
-                //                 </p>
-                //               </div>
-                //               <p class="message__lower">
-                //                 <p class="message__lower__text">
-                //                   ${message.content}
-                //                 </p>
-                //                 ${image_html}
-                //               </p>
-                //             </div>`;
-                
+        
     
     return html;
   }
